@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Service HP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+            cursor: pointer;
+        }
+
+        /* Responsive design */
+        @media only screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .form-container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            button {
+                font-size: 14px;
+            }
+        }
+
+        @media only screen and (min-width: 601px) and (max-width: 1024px) {
+            h1 {
+                font-size: 28px;
+            }
+            .form-container {
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Form Service HP</h1>
+
+    <div class="form-container">
+        <label for="brand">Merek HP:</label>
+        <select id="brand" required>
+            <option value="Redmi/Xiaomi">Redmi/Xiaomi</option>
+            <option value="Poco">Poco</option>
+            <option value="Tecno">Tecno</option>
+            <option value="Itel">Itel</option>
+            <option value="Infinix">Infinix</option>
+            <option value="Realme">Realme</option>
+            <option value="Oppo">Oppo</option>
+            <option value="Vivo">Vivo</option>
+            <option value="Asus">Asus</option>
+            <option value="Samsung">Samsung</option>
+        </select>
+
+        <label for="model">Tipe HP:</label>
+        <input type="text" id="model" placeholder="Contoh: POCO F1" required>
+
+        <label for="service">Jasa:</label>
+        <select id="service" required>
+            <option value="Fix Bootloop">Fix Bootloop</option>
+            <option value="Root">Root</option>
+            <option value="UBL">UBL</option>
+            <option value="Custom Rom">Custom Rom</option>
+            <option value="Custom Twrp">Custom Twrp</option>
+            <option value="Lainnya">Lainnya</option>
+        </select>
+
+        <label for="payment">Pembayaran:</label>
+        <select id="payment" required>
+            <option value="Dana">Dana</option>
+            <option value="Gopay">Gopay</option>
+        </select>
+
+        <button onclick="submitForm()">Submit</button>
+    </div>
+
+    <script>
+        function submitForm() {
+            const brand = document.getElementById('brand').value;
+            const model = document.getElementById('model').value;
+            const service = document.getElementById('service').value;
+            const payment = document.getElementById('payment').value;
+
+            const message = `Merek HP: ${brand}%0ATipe HP: ${model}%0AJasa: ${service}%0APembayaran: ${payment}`;
+
+            const url = `https://wa.me/+6289507299136?text=${message}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>
